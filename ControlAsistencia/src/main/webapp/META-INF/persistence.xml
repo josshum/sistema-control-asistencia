@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="ControlDeAsistenciaPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    
+    <class>pe.com.controlasistencia.entities.Silabo</class>
+    <class>pe.com.controlasistencia.entities.Ubigeo</class>
+    <class>pe.com.controlasistencia.entities.Curso</class>
+    <class>pe.com.controlasistencia.entities.Turno</class>
+    <class>pe.com.controlasistencia.entities.Permiso</class>
+    <class>pe.com.controlasistencia.entities.AdminAsistencia</class>
+    <class>pe.com.controlasistencia.entities.Perfil</class>
+    <class>pe.com.controlasistencia.entities.Salon</class>
+    <class>pe.com.controlasistencia.entities.Tiposalon</class>
+    <class>pe.com.controlasistencia.entities.Auditoria</class>
+    <class>pe.com.controlasistencia.entities.ClaseRecurso</class>
+    <class>pe.com.controlasistencia.entities.Usuario</class>
+    <class>pe.com.controlasistencia.entities.Recurso</class>
+    <class>pe.com.controlasistencia.entities.Interfaz</class>
+    <class>pe.com.controlasistencia.entities.Carrera</class>
+    <class>pe.com.controlasistencia.entities.Clase</class>
+  
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/DBsiscontrol"/>
+      <property name="javax.persistence.jdbc.password" value="miguel"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+    </properties>
+  </persistence-unit>
+</persistence>

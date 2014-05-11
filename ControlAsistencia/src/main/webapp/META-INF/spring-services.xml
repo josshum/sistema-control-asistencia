@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    
+    
+    <bean id="adminAsistenciaServices" class="pe.com.controlasistencia.services.impl.AdminAsistenciaServicesImpl">
+        <property name="adminasistenciaDao" ref="adminasistenciaDao"/>
+    </bean>
+    
+    <bean id="auditoriaServices" class="pe.com.controlasistencia.services.impl.AuditoriaServicesImpl">
+        <property name="auditoriaDao" ref="auditoriaDao"/>    
+    </bean>
+        
+    <bean id="carreraServices" class="pe.com.controlasistencia.services.impl.CarreraServicesImpl">
+        <property name="carreraDao" ref="carreraDao"/>   
+    </bean>
+    
+    <bean id="claseRecursoServices" class="pe.com.controlasistencia.services.impl.ClaseRecursoServicesImpl">
+        <property name="claserecursoDao" ref="claserecursoDao"/>
+    </bean>
+    
+    <bean id="claseServices" class="pe.com.controlasistencia.services.impl.ClaseServicesImpl">
+        <property name="claseDao" ref="claseDao"/>    
+    </bean>  
+    
+    <bean id="cursoServices" class="pe.com.controlasistencia.services.impl.CursoServicesImpl">
+        <property name="cursoDao" ref="cursoDao"/>
+    </bean>
+    
+    <bean id="interfazServices" class="pe.com.controlasistencia.services.impl.InterfazServicesImpl">
+        <property name="interfazDao" ref="interfazDao"/>
+    </bean>
+    
+    <bean id="perfilServices" class="pe.com.controlasistencia.services.impl.PerfilServicesImpl">
+        <property name="perfilDao" ref="perfilDao"/>
+    </bean>
+    
+    <bean id="permisoServices" class="pe.com.controlasistencia.services.impl.PermisoServicesImpl">
+        <property name="permisoDao" ref="permisoDao"/>
+    </bean>
+    
+    <bean id="recursoServices" class="pe.com.controlasistencia.services.impl.RecursoServicesImpl">
+        <property name="recursoDao" ref="recursoDao"/>
+    </bean>
+    
+    <bean id="salonServices" class="pe.com.controlasistencia.services.impl.SalonServicesImpl">
+        <property name="salonDao" ref="salonDao"/>
+    </bean>
+    
+    <bean id="silaboServices" class="pe.com.controlasistencia.services.impl.SilaboServicesImpl">
+        <property name="silaboDao" ref="silaboDao"/>
+    </bean>
+    
+    <bean id="tipoSalonServices" class="pe.com.controlasistencia.services.impl.TipoSalonServicesImpl">
+        <property name="tiposalonDao" ref="tiposalonDao"/>
+    </bean>
+    
+    <bean id="turnoServices" class="pe.com.controlasistencia.services.impl.TurnoServicesImpl">
+        <property name="turnoDao" ref="turnoDao"/>
+    </bean>
+    
+    <bean id="ubigeoServices" class="pe.com.controlasistencia.services.impl.UbigeoServicesImpl">
+        <property name="ubigeoDao" ref="ubigeoDao"/>
+    </bean>
+    
+    <bean id="usuarioServices" class="pe.com.controlasistencia.services.impl.UsuarioServicesImpl">
+        <property name="usuarioDao" ref="usuarioDao"/>
+    </bean>
+    
+</beans>
