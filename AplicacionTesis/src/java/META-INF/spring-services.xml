@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     
-    
     <bean id="adminAsistenciaServices" class="pe.com.controlasistencia.services.impl.AdminAsistenciaServicesImpl">
-        <property name="adminasistenciaDao" ref="adminasistenciaDao"/>
+        <property name="adminAsistenciaDao" ref="adminAsistenciaDao"/>
     </bean>
     
     <bean id="auditoriaServices" class="pe.com.controlasistencia.services.impl.AuditoriaServicesImpl">
@@ -19,7 +18,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     </bean>
     
     <bean id="claseRecursoServices" class="pe.com.controlasistencia.services.impl.ClaseRecursoServicesImpl">
-        <property name="claserecursoDao" ref="claserecursoDao"/>
+        <property name="claseRecursoDao" ref="claseRecursoDao"/>
     </bean>
     
     <bean id="claseServices" class="pe.com.controlasistencia.services.impl.ClaseServicesImpl">
@@ -55,7 +54,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     </bean>
     
     <bean id="tipoSalonServices" class="pe.com.controlasistencia.services.impl.TipoSalonServicesImpl">
-        <property name="tiposalonDao" ref="tiposalonDao"/>
+        <property name="tipoSalonDao" ref="tipoSalonDao"/>
     </bean>
     
     <bean id="turnoServices" class="pe.com.controlasistencia.services.impl.TurnoServicesImpl">

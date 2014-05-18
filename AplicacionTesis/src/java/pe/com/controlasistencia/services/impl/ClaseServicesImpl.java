@@ -9,7 +9,7 @@ public class ClaseServicesImpl implements ClaseServices {
 
     ClaseDAO claseDao;
 
-    public void setAdminAsistenciaDao(ClaseDAO claseDao) {
+    public void setClaseDao(ClaseDAO claseDao) {
         this.claseDao = claseDao;
     }
 

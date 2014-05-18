@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class SpringUtils {
     
    private static ApplicationContext applicationContext = 
-                  new ClassPathXmlApplicationContext("META-INF/applicationContext.xml");
+                  new ClassPathXmlApplicationContext("META-INF/applicationContext.xml");    
 
    public static ApplicationContext getApplicationContext() {
         return applicationContext;

@@ -9,7 +9,7 @@ public class PermisoServicesImpl implements PermisoServices {
 
     PermisoDAO permisoDao;
 
-    public void setAdminAsistenciaDao(PermisoDAO permisoDao) {
+    public void setPermisoDao(PermisoDAO permisoDao) {
         this.permisoDao = permisoDao;
     }
 

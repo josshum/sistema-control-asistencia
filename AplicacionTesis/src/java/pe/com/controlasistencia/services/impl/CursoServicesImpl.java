@@ -13,10 +13,7 @@ public class CursoServicesImpl implements CursoServices {
         this.cursoDao = cursoDao;
     }
 
-    @Override
-    public List<Curso> listar() {
-        return cursoDao.listar();
-    }
+   
 
     @Override
     public String insert(Curso atributo) {
@@ -31,6 +28,11 @@ public class CursoServicesImpl implements CursoServices {
     @Override
     public Curso get(Integer atributo_id) {
         return cursoDao.get(atributo_id);
+    }
+
+    @Override
+    public List<Curso> listar() {
+        return cursoDao.listar();
     }
 
 }

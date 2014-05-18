@@ -43,22 +43,22 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Curso.findByRequisito", query = "SELECT c FROM Curso c WHERE c.requisito = :requisito"),
     @NamedQuery(name = "Curso.findByActivo", query = "SELECT c FROM Curso c WHERE c.activo = :activo")})
 public class Curso implements Serializable {
+    @Column(name = "CODIGO")
+    private String codigo;
+    @Column(name = "NOMBRE")
+    private String nombre;
+    @Column(name = "REQUISITO")
+    private String requisito;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idCURSO")
     private Integer idCURSO;
-    @Column(name = "CODIGO")
-    private Integer codigo;
-    @Column(name = "NOMBRE")
-    private Integer nombre;
     @Column(name = "CICLO")
     private Integer ciclo;
     @Column(name = "CREDITO")
     private Integer credito;
-    @Column(name = "REQUISITO")
-    private Integer requisito;
     @Column(name = "ACTIVO")
     private Integer activo;
     @ManyToMany(mappedBy = "cursoList", fetch = FetchType.LAZY)
@@ -86,21 +86,6 @@ public class Curso implements Serializable {
         this.idCURSO = idCURSO;
     }
 
-    public Integer getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
-    }
-
-    public Integer getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(Integer nombre) {
-        this.nombre = nombre;
-    }
 
     public Integer getCiclo() {
         return ciclo;
@@ -118,13 +103,6 @@ public class Curso implements Serializable {
         this.credito = credito;
     }
 
-    public Integer getRequisito() {
-        return requisito;
-    }
-
-    public void setRequisito(Integer requisito) {
-        this.requisito = requisito;
-    }
 
     public Integer getActivo() {
         return activo;
@@ -192,6 +170,30 @@ public class Curso implements Serializable {
     @Override
     public String toString() {
         return "pe.com.controlasistencia.entities.Curso[ idCURSO=" + idCURSO + " ]";
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getRequisito() {
+        return requisito;
+    }
+
+    public void setRequisito(String requisito) {
+        this.requisito = requisito;
     }
     
 }

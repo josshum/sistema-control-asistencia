@@ -21,7 +21,7 @@ public class CursoDAOImplJpa implements CursoDAO {
 
     @Override
     public List<Curso> listar() {
-        TypedQuery<Curso> query = em.createQuery("select c From Curso", Curso.class);
+        TypedQuery<Curso> query = em.createQuery("select c From Curso c", Curso.class);
         return query.getResultList();
     }
 

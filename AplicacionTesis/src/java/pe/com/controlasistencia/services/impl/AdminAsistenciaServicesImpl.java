@@ -7,31 +7,31 @@ import pe.com.controlasistencia.services.AdminAsistenciaServices;
 
 public class AdminAsistenciaServicesImpl implements AdminAsistenciaServices{
     
-    AdminAsistenciaDAO adminasistenciaDao;
+    AdminAsistenciaDAO adminAsistenciaDao;
 
-    public void setAdminAsistenciaDao(AdminAsistenciaDAO adminasistenciaDao) {
-        this.adminasistenciaDao = adminasistenciaDao;
+    public void setAdminAsistenciaDao(AdminAsistenciaDAO adminAsistenciaDao) {
+        this.adminAsistenciaDao = adminAsistenciaDao;
     }
     
 
 	@Override
 	public List<AdminAsistencia> listar() {
-		return adminasistenciaDao.listar();
+		return adminAsistenciaDao.listar();
 	}
 
 	@Override
 	public String insert(AdminAsistencia atributo) {
-		return adminasistenciaDao.insert(atributo);
+		return adminAsistenciaDao.insert(atributo);
 	}
 
 	@Override
 	public String update(AdminAsistencia atributo) {
-		return adminasistenciaDao.update(atributo);
+		return adminAsistenciaDao.update(atributo);
 	}
 
 	@Override
 	public AdminAsistencia get(Integer atributo_id) {
-		return adminasistenciaDao.get(atributo_id);
+		return adminAsistenciaDao.get(atributo_id);
 	}
 
 }

@@ -7,30 +7,30 @@ import pe.com.controlasistencia.services.ClaseRecursoServices;
 
 public class ClaseRecursoServicesImpl implements ClaseRecursoServices {
 
-    ClaseRecursoDAO claserecursoDao;
+    ClaseRecursoDAO claseRecursoDao;
 
-    public void setAdminAsistenciaDao(ClaseRecursoDAO claserecursoDao) {
-        this.claserecursoDao = claserecursoDao;
+    public void setClaseRecursoDao(ClaseRecursoDAO claseRecursoDao) {
+        this.claseRecursoDao = claseRecursoDao;
     }
 
     @Override
     public List<ClaseRecurso> listar() {
-        return claserecursoDao.listar();
+        return claseRecursoDao.listar();
     }
 
     @Override
     public String insert(ClaseRecurso atributo) {
-        return claserecursoDao.insert(atributo);
+        return claseRecursoDao.insert(atributo);
     }
 
     @Override
     public String update(ClaseRecurso atributo) {
-        return claserecursoDao.update(atributo);
+        return claseRecursoDao.update(atributo);
     }
 
     @Override
     public ClaseRecurso get(Integer atributo_id) {
-        return claserecursoDao.get(atributo_id);
+        return claseRecursoDao.get(atributo_id);
     }
 
 }

@@ -5,10 +5,10 @@
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 
-<bean   id="adminasistenciaDao" class="pe.com.controlasistencia.dao.jpa.AdminAsistenciaDAOImplJpa"></bean>
+<bean   id="adminAsistenciaDao" class="pe.com.controlasistencia.dao.jpa.AdminAsistenciaDAOImplJpa"></bean>
 <bean   id="auditoriaDao" class="pe.com.controlasistencia.dao.jpa.AuditoriaDAOImplJpa"></bean>
 <bean   id="carreraDao" class="pe.com.controlasistencia.dao.jpa.CarreraDAOImplJpa"></bean>
-<bean   id="claserecursoDao" class="pe.com.controlasistencia.dao.jpa.ClaseRecursoDAOImplJpa"></bean>
+<bean   id="claseRecursoDao" class="pe.com.controlasistencia.dao.jpa.ClaseRecursoDAOImplJpa"></bean>
 <bean   id="claseDao" class="pe.com.controlasistencia.dao.jpa.ClaseDAOImplJpa"></bean> 
 <bean   id="cursoDao" class="pe.com.controlasistencia.dao.jpa.CursoDAOImplJpa"></bean>
 <bean   id="interfazDao" class="pe.com.controlasistencia.dao.jpa.InterfazDAOImplJpa"></bean>
@@ -17,7 +17,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 <bean   id="recursoDao" class="pe.com.controlasistencia.dao.jpa.RecursoDAOImplJpa"></bean>
 <bean   id="salonDao" class="pe.com.controlasistencia.dao.jpa.SalonDAOImplJpa"></bean>
 <bean   id="silaboDao" class="pe.com.controlasistencia.dao.jpa.SilaboDAOImplJpa"></bean>
-<bean   id="tiposalonDao" class="pe.com.controlasistencia.dao.jpa.TipoSalonDAOImplJpa"></bean>
+<bean   id="tipoSalonDao" class="pe.com.controlasistencia.dao.jpa.TipoSalonDAOImplJpa"></bean>
 <bean   id="turnoDao" class="pe.com.controlasistencia.dao.jpa.TurnoDAOImplJpa"></bean>
 <bean   id="ubigeoDao" class="pe.com.controlasistencia.dao.jpa.UbigeoDAOImplJpa"></bean>
 <bean   id="usuarioDao" class="pe.com.controlasistencia.dao.jpa.UsuarioDAOImplJpa"></bean>

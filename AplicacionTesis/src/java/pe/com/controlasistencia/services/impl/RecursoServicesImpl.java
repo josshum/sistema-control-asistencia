@@ -9,7 +9,7 @@ public class RecursoServicesImpl implements RecursoServices {
 
     RecursoDAO recursoDao;
 
-    public void setAdminAsistenciaDao(RecursoDAO recursoDao) {
+    public void setRecursoDao(RecursoDAO recursoDao) {
         this.recursoDao = recursoDao;
     }
 

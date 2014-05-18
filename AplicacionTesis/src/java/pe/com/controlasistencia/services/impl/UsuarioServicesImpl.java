@@ -9,7 +9,7 @@ public class UsuarioServicesImpl implements UsuarioServices {
 
     UsuarioDAO usuarioDao;
 
-    public void setUbigeoDao(UsuarioDAO usuarioDao) {
+    public void setUsuarioDao(UsuarioDAO usuarioDao) {
         this.usuarioDao = usuarioDao;
     }
 

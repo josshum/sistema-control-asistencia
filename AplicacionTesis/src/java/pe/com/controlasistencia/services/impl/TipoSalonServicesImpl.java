@@ -7,30 +7,30 @@ import pe.com.controlasistencia.services.TipoSalonServices;
 
 public class TipoSalonServicesImpl implements TipoSalonServices {
 
-    TipoSalonDAO tiposalonDao;
+    TipoSalonDAO tipoSalonDao;
 
-    public void setTipoSalonDao(TipoSalonDAO tiposalonDao) {
-        this.tiposalonDao = tiposalonDao;
+    public void setTipoSalonDao(TipoSalonDAO tipoSalonDao) {
+        this.tipoSalonDao = tipoSalonDao;
     }
 
     @Override
     public List<Tiposalon> listar() {
-        return tiposalonDao.listar();
+        return tipoSalonDao.listar();
     }
 
     @Override
     public String insert(Tiposalon atributo) {
-        return tiposalonDao.insert(atributo);
+        return tipoSalonDao.insert(atributo);
     }
 
     @Override
     public String update(Tiposalon atributo) {
-        return tiposalonDao.update(atributo);
+        return tipoSalonDao.update(atributo);
     }
 
     @Override
     public Tiposalon get(Integer atributo_id) {
-        return tiposalonDao.get(atributo_id);
+        return tipoSalonDao.get(atributo_id);
     }
 
 }

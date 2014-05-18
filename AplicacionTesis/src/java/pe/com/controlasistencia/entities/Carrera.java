@@ -40,6 +40,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Carrera.findByTotalcred", query = "SELECT c FROM Carrera c WHERE c.totalcred = :totalcred"),
     @NamedQuery(name = "Carrera.findByActivo", query = "SELECT c FROM Carrera c WHERE c.activo = :activo")})
 public class Carrera implements Serializable {
+    @Column(name = "GRADO")
+    private String grado;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,8 +54,6 @@ public class Carrera implements Serializable {
     private String descripcion;
     @Column(name = "NUMCICLOS")
     private Integer numciclos;
-    @Column(name = "GRADO")
-    private Integer grado;
     @Column(name = "TOTALCRED")
     private Integer totalcred;
     @Column(name = "ACTIVO")
@@ -100,13 +100,6 @@ public class Carrera implements Serializable {
         this.numciclos = numciclos;
     }
 
-    public Integer getGrado() {
-        return grado;
-    }
-
-    public void setGrado(Integer grado) {
-        this.grado = grado;
-    }
 
     public Integer getTotalcred() {
         return totalcred;
@@ -156,6 +149,14 @@ public class Carrera implements Serializable {
     @Override
     public String toString() {
         return "pe.com.controlasistencia.entities.Carrera[ idCARRERA=" + idCARRERA + " ]";
+    }
+
+    public String getGrado() {
+        return grado;
+    }
+
+    public void setGrado(String grado) {
+        this.grado = grado;
     }
     
 }

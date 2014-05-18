@@ -9,7 +9,7 @@ public class AuditoriaServicesImpl implements AuditoriaServices{
 
     AuditoriaDAO auditoriaDao;
 
-    public void setAdminAsistenciaDao(AuditoriaDAO auditoriaDao) {
+    public void setAuditoriaDao(AuditoriaDAO auditoriaDao) {
         this.auditoriaDao = auditoriaDao;
     }
     

@@ -9,7 +9,7 @@ public class PerfilServicesImpl implements PerfilServices {
 
     PerfilDAO perfilDao;
 
-    public void setAdminAsistenciaDao(PerfilDAO perfilDao) {
+    public void setPerfilDao(PerfilDAO perfilDao) {
         this.perfilDao = perfilDao;
     }
 

@@ -37,21 +37,21 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Silabo.findBySemanas", query = "SELECT s FROM Silabo s WHERE s.semanas = :semanas"),
     @NamedQuery(name = "Silabo.findByActivo", query = "SELECT s FROM Silabo s WHERE s.activo = :activo")})
 public class Silabo implements Serializable {
+    @Column(name = "NOMBRE")
+    private String nombre;
+    @Lob
+    @Column(name = "ADJUNTO")
+    private byte[] adjunto;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idSILABO")
     private Integer idSILABO;
-    @Column(name = "NOMBRE")
-    private Integer nombre;
     @Column(name = "HORASACAD")
     private Integer horasacad;
     @Column(name = "SEMANAS")
     private Integer semanas;
-    @Lob
-    @Column(name = "ADJUNTO")
-    private byte[] adjunto;
     @Column(name = "ACTIVO")
     private Integer activo;
     @JoinColumn(name = "CURSO_idCURSO", referencedColumnName = "idCURSO")
@@ -73,13 +73,6 @@ public class Silabo implements Serializable {
         this.idSILABO = idSILABO;
     }
 
-    public Integer getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(Integer nombre) {
-        this.nombre = nombre;
-    }
 
     public Integer getHorasacad() {
         return horasacad;
@@ -97,13 +90,6 @@ public class Silabo implements Serializable {
         this.semanas = semanas;
     }
 
-    public byte[] getAdjunto() {
-        return adjunto;
-    }
-
-    public void setAdjunto(byte[] adjunto) {
-        this.adjunto = adjunto;
-    }
 
     public Integer getActivo() {
         return activo;
@@ -144,6 +130,22 @@ public class Silabo implements Serializable {
     @Override
     public String toString() {
         return "pe.com.controlasistencia.entities.Silabo[ idSILABO=" + idSILABO + " ]";
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public byte[] getAdjunto() {
+        return adjunto;
+    }
+
+    public void setAdjunto(byte[] adjunto) {
+        this.adjunto = adjunto;
     }
     
 }

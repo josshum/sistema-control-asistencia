@@ -9,7 +9,7 @@ public class CarreraServicesImpl implements CarreraServices{
 
     CarreraDAO carreraDao;
 
-    public void setAdminAsistenciaDao(CarreraDAO carreraDao) {
+    public void setCarreraDao(CarreraDAO carreraDao) {
         this.carreraDao = carreraDao;
     }
     

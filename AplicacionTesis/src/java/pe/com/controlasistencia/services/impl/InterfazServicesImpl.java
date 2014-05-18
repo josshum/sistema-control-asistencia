@@ -9,7 +9,7 @@ public class InterfazServicesImpl implements InterfazServices{
 
     InterfazDAO interfazDao;
 
-    public void setAdminAsistenciaDao(InterfazDAO interfazDao) {
+    public void setInterfazDao(InterfazDAO interfazDao) {
         this.interfazDao = interfazDao;
     }
     

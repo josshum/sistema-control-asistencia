@@ -36,7 +36,7 @@ public class JPAUtil implements Serializable{
                 try{
                         em.close();
                     }catch(Exception ex){
-                       log.error(ex.getMessage()); 
+                  //     log.error(ex.getMessage()); 
                     }	
  		}
     
