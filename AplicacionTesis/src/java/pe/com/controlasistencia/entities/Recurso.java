@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "RECURSO")
+@Table(name = "RECURSO", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Recurso.findAll", query = "SELECT r FROM Recurso r"),
@@ -51,10 +50,10 @@ public class Recurso implements Serializable {
     private String descripcion;
     @Column(name = "ESTADO")
     private String estado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rECURSOidRECURSO", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rECURSOidRECURSO")
     private List<ClaseRecurso> claseRecursoList;
     @JoinColumn(name = "USUARIO_ID", referencedColumnName = "USUARIO_ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Usuario usuarioId;
 
     public Recurso() {

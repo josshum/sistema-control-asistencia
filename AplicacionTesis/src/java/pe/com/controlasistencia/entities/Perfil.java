@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "PERFIL")
+@Table(name = "PERFIL", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Perfil.findAll", query = "SELECT p FROM Perfil p"),
@@ -48,13 +47,13 @@ public class Perfil implements Serializable {
     private String nombre;
     @Basic(optional = false)
     @Column(name = "DESCRIPCION")
-    private int descripcion;
+    private String descripcion;
     @Basic(optional = false)
     @Column(name = "ACTIVO")
     private int activo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "perfilId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "perfilId")
     private List<Permiso> permisoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "perfilId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "perfilId")
     private List<Usuario> usuarioList;
 
     public Perfil() {
@@ -64,7 +63,7 @@ public class Perfil implements Serializable {
         this.perfilId = perfilId;
     }
 
-    public Perfil(Integer perfilId, String nombre, int descripcion, int activo) {
+    public Perfil(Integer perfilId, String nombre, String descripcion, int activo) {
         this.perfilId = perfilId;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -87,11 +86,11 @@ public class Perfil implements Serializable {
         this.nombre = nombre;
     }
 
-    public int getDescripcion() {
+    public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(int descripcion) {
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 

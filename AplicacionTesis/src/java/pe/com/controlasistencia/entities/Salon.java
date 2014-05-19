@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "SALON")
+@Table(name = "SALON", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Salon.findAll", query = "SELECT s FROM Salon s"),
@@ -46,9 +45,9 @@ public class Salon implements Serializable {
     private Integer numero;
     @Column(name = "CAPACIDAD")
     private Integer capacidad;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sALONidSALON", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sALONidSALON")
     private List<Clase> claseList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sALONidSALON", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sALONidSALON")
     private List<Tiposalon> tiposalonList;
 
     public Salon() {

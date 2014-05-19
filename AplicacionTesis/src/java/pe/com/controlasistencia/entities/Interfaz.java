@@ -13,7 +13,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "INTERFAZ")
+@Table(name = "INTERFAZ", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Interfaz.findAll", query = "SELECT i FROM Interfaz i"),
@@ -64,7 +63,7 @@ public class Interfaz implements Serializable {
     @Column(name = "FECHAUPDATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaupdate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "interfazId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "interfazId")
     private List<Permiso> permisoList;
 
     public Interfaz() {

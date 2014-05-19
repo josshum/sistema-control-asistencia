@@ -10,7 +10,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "TIPOSALON")
+@Table(name = "TIPOSALON", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Tiposalon.findAll", query = "SELECT t FROM Tiposalon t"),
@@ -45,7 +44,7 @@ public class Tiposalon implements Serializable {
     @Column(name = "DESCRIPCION")
     private String descripcion;
     @JoinColumn(name = "SALON_idSALON", referencedColumnName = "idSALON")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Salon sALONidSALON;
 
     public Tiposalon() {

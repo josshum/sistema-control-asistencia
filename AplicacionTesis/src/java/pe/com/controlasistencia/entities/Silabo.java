@@ -10,7 +10,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +26,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "SILABO")
+@Table(name = "SILABO", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Silabo.findAll", query = "SELECT s FROM Silabo s"),
@@ -37,25 +36,25 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Silabo.findBySemanas", query = "SELECT s FROM Silabo s WHERE s.semanas = :semanas"),
     @NamedQuery(name = "Silabo.findByActivo", query = "SELECT s FROM Silabo s WHERE s.activo = :activo")})
 public class Silabo implements Serializable {
-    @Column(name = "NOMBRE")
-    private String nombre;
-    @Lob
-    @Column(name = "ADJUNTO")
-    private byte[] adjunto;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idSILABO")
     private Integer idSILABO;
+    @Column(name = "NOMBRE")
+    private String nombre;
     @Column(name = "HORASACAD")
     private Integer horasacad;
     @Column(name = "SEMANAS")
     private Integer semanas;
+    @Lob
+    @Column(name = "ADJUNTO")
+    private byte[] adjunto;
     @Column(name = "ACTIVO")
     private Integer activo;
     @JoinColumn(name = "CURSO_idCURSO", referencedColumnName = "idCURSO")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Curso cURSOidCURSO;
 
     public Silabo() {
@@ -73,6 +72,13 @@ public class Silabo implements Serializable {
         this.idSILABO = idSILABO;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public Integer getHorasacad() {
         return horasacad;
@@ -90,6 +96,13 @@ public class Silabo implements Serializable {
         this.semanas = semanas;
     }
 
+    public byte[] getAdjunto() {
+        return adjunto;
+    }
+
+    public void setAdjunto(byte[] adjunto) {
+        this.adjunto = adjunto;
+    }
 
     public Integer getActivo() {
         return activo;
@@ -130,22 +143,6 @@ public class Silabo implements Serializable {
     @Override
     public String toString() {
         return "pe.com.controlasistencia.entities.Silabo[ idSILABO=" + idSILABO + " ]";
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public byte[] getAdjunto() {
-        return adjunto;
-    }
-
-    public void setAdjunto(byte[] adjunto) {
-        this.adjunto = adjunto;
     }
     
 }

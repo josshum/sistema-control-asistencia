@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "CURSO")
+@Table(name = "CURSO", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Curso.findAll", query = "SELECT c FROM Curso c"),
@@ -43,32 +42,32 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Curso.findByRequisito", query = "SELECT c FROM Curso c WHERE c.requisito = :requisito"),
     @NamedQuery(name = "Curso.findByActivo", query = "SELECT c FROM Curso c WHERE c.activo = :activo")})
 public class Curso implements Serializable {
-    @Column(name = "CODIGO")
-    private String codigo;
-    @Column(name = "NOMBRE")
-    private String nombre;
-    @Column(name = "REQUISITO")
-    private String requisito;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idCURSO")
     private Integer idCURSO;
+    @Column(name = "CODIGO")
+    private String codigo;
+    @Column(name = "NOMBRE")
+    private String nombre;
     @Column(name = "CICLO")
     private Integer ciclo;
     @Column(name = "CREDITO")
     private Integer credito;
+    @Column(name = "REQUISITO")
+    private String requisito;
     @Column(name = "ACTIVO")
     private Integer activo;
-    @ManyToMany(mappedBy = "cursoList", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "cursoList")
     private List<Usuario> usuarioList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cURSOidCURSO", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cURSOidCURSO")
     private List<Silabo> silaboList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cURSOidCURSO", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cURSOidCURSO")
     private List<Clase> claseList;
     @JoinColumn(name = "CARRERA_idCARRERA", referencedColumnName = "idCARRERA")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Carrera cARRERAidCARRERA;
 
     public Curso() {
@@ -86,6 +85,21 @@ public class Curso implements Serializable {
         this.idCURSO = idCURSO;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public Integer getCiclo() {
         return ciclo;
@@ -103,6 +117,13 @@ public class Curso implements Serializable {
         this.credito = credito;
     }
 
+    public String getRequisito() {
+        return requisito;
+    }
+
+    public void setRequisito(String requisito) {
+        this.requisito = requisito;
+    }
 
     public Integer getActivo() {
         return activo;
@@ -170,30 +191,6 @@ public class Curso implements Serializable {
     @Override
     public String toString() {
         return "pe.com.controlasistencia.entities.Curso[ idCURSO=" + idCURSO + " ]";
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getRequisito() {
-        return requisito;
-    }
-
-    public void setRequisito(String requisito) {
-        this.requisito = requisito;
     }
     
 }

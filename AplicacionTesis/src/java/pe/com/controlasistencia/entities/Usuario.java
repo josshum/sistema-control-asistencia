@@ -13,7 +13,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "USUARIO")
+@Table(name = "USUARIO", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
@@ -106,22 +105,19 @@ public class Usuario implements Serializable {
     @JoinTable(name = "USUARIO_has_CURSO", joinColumns = {
         @JoinColumn(name = "USUARIO_ID", referencedColumnName = "USUARIO_ID")}, inverseJoinColumns = {
         @JoinColumn(name = "CURSO_idCURSO", referencedColumnName = "idCURSO")})
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     private List<Curso> cursoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId")
     private List<AdminAsistencia> adminAsistenciaList;
-    @JoinColumn(name = "CLASE_idCLASE", referencedColumnName = "idCLASE")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Clase cLASEidCLASE;
     @JoinColumn(name = "UBIGEO_ID", referencedColumnName = "UBIGEO_ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne
     private Ubigeo ubigeoId;
     @JoinColumn(name = "PERFIL_ID", referencedColumnName = "PERFIL_ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Perfil perfilId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId")
     private List<Auditoria> auditoriaList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId")
     private List<Recurso> recursoList;
 
     public Usuario() {
@@ -286,14 +282,6 @@ public class Usuario implements Serializable {
 
     public void setAdminAsistenciaList(List<AdminAsistencia> adminAsistenciaList) {
         this.adminAsistenciaList = adminAsistenciaList;
-    }
-
-    public Clase getCLASEidCLASE() {
-        return cLASEidCLASE;
-    }
-
-    public void setCLASEidCLASE(Clase cLASEidCLASE) {
-        this.cLASEidCLASE = cLASEidCLASE;
     }
 
     public Ubigeo getUbigeoId() {

@@ -13,7 +13,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "CLASE")
+@Table(name = "CLASE", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Clase.findAll", query = "SELECT c FROM Clase c"),
@@ -54,23 +53,21 @@ public class Clase implements Serializable {
     @Column(name = "NUMEROCLASE")
     private Integer numeroclase;
     @Column(name = "HORAINI")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIME)
     private Date horaini;
     @Column(name = "HORAFIN")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIME)
     private Date horafin;
     @JoinColumn(name = "TURNO_idTURNO", referencedColumnName = "idTURNO")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Turno tURNOidTURNO;
     @JoinColumn(name = "SALON_idSALON", referencedColumnName = "idSALON")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Salon sALONidSALON;
     @JoinColumn(name = "CURSO_idCURSO", referencedColumnName = "idCURSO")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Curso cURSOidCURSO;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cLASEidCLASE", fetch = FetchType.LAZY)
-    private List<Usuario> usuarioList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cLASEidCLASE", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cLASEidCLASE")
     private List<ClaseRecurso> claseRecursoList;
 
     public Clase() {
@@ -142,15 +139,6 @@ public class Clase implements Serializable {
 
     public void setCURSOidCURSO(Curso cURSOidCURSO) {
         this.cURSOidCURSO = cURSOidCURSO;
-    }
-
-    @XmlTransient
-    public List<Usuario> getUsuarioList() {
-        return usuarioList;
-    }
-
-    public void setUsuarioList(List<Usuario> usuarioList) {
-        this.usuarioList = usuarioList;
     }
 
     @XmlTransient

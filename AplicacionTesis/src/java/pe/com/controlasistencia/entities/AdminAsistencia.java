@@ -11,7 +11,6 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "ADMIN_ASISTENCIA")
+@Table(name = "ADMIN_ASISTENCIA", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "AdminAsistencia.findAll", query = "SELECT a FROM AdminAsistencia a"),
@@ -50,7 +49,7 @@ public class AdminAsistencia implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date horafin;
     @JoinColumn(name = "USUARIO_ID", referencedColumnName = "USUARIO_ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Usuario usuarioId;
 
     public AdminAsistencia() {

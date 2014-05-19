@@ -1,42 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package pe.com.controlasistencia.controlador;
 
 import java.io.IOException;
-import java.lang.invoke.MethodHandles;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.log4j.Logger;
 import pe.com.controlasistencia.entities.Curso;
-import pe.com.controlasistencia.services.CursoServices;
+import pe.com.controlasistencia.entities.Usuario;
 import pe.com.controlasistencia.services.UsuarioServices;
 import pe.com.controlasistencia.util.SpringUtils;
 
-public class AdminAsistenciaServlet extends HttpServlet {
+/**
+ *
+ * @author tigabytes-linux
+ */
+public class LoginServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
       
-        CursoServices cursoServices = (CursoServices) SpringUtils.getBean("cursoServices");
         UsuarioServices usuarioServices = (UsuarioServices) SpringUtils.getBean("usuarioServices");
-        Logger log = Logger.getLogger(AdminAsistenciaServlet.class);
-               
         
-        if(request.getServletPath().equals("/AdminAsistenciaServlet")){  
+        
+        if(request.getServletPath().equals("/LoginServlet")){
            
-           List<Curso> listaCursos = usuarioServices.get(8).getCursoList();
+           String user =  request.getParameter("usuario");
+           String pass = request.getParameter("clave");
            
-           request.setAttribute("listaCurso", listaCursos);
-           request.getRequestDispatcher(null).forward(request, response);
+           Usuario usuario = usuarioServices.validarUsuario(user, pass);
+           List<Curso> listaCursos = usuarioServices.get(usuario.getUsuarioId()).getCursoList();
            
+           request.setAttribute("listarCursos", listaCursos);
+           request.getRequestDispatcher("/registrarAsistencia.jsp").forward(request, response);
            
-           /*
-           log.info("ingresando");
-           System.out.println("ingresto");
-           System.out.println(cursoServices.listar());
-           */
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

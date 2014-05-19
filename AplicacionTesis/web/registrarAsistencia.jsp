@@ -1,5 +1,19 @@
+<%@page import="pe.com.controlasistencia.entities.Curso"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<%
+    
+List<Curso> listarCurso = null;
+        
+if(request.getAttribute("listarCursos") != null){
+    listarCurso = (List<Curso>)request.getAttribute("listarCursos");    
+}    
+    
+%>
+
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,8 +36,12 @@
                 <tr>
                     <td class="texto">Curso a dictar:</td>   
                     <td style="size: 30px">
+                        
                         <select name="curso" onchange="enable()" >
-                            <option value="0" selected>--Seleccione--</option>                            
+                            <option value="0">--Seleccione--</option>
+                            <% for(Curso curso : listarCurso){ %>
+                            <option value="<%=curso.getIdCURSO().intValue() %>"><%=curso.getNombre() %></option>
+                            <% } %>
                         </select>
                     </td> 
                     <td style="width: 80px"></td>
@@ -39,9 +57,7 @@
                         </select>
                     </td>      
                     
-                </tr>
-         
-               
+                </tr>              
 
             </table>
 

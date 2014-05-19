@@ -6,9 +6,9 @@ import pe.com.controlasistencia.entities.Usuario;
 
 public interface UsuarioServices {
 	
-	public List<Usuario> listar();
+    public List<Usuario> listar();
     public String insert(Usuario atributo);
     public String update(Usuario atributo);
     public Usuario get(Integer atributo_id);
-
+    public Usuario validarUsuario(String usuario, String clave);
 }

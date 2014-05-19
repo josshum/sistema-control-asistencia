@@ -13,7 +13,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "TURNO")
+@Table(name = "TURNO", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Turno.findAll", query = "SELECT t FROM Turno t"),
@@ -50,14 +49,14 @@ public class Turno implements Serializable {
     @Column(name = "NOMBRE")
     private String nombre;
     @Column(name = "HORAINICIO")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIME)
     private Date horainicio;
     @Column(name = "HORAFIN")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIME)
     private Date horafin;
     @Column(name = "ACTIVO")
     private Integer activo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tURNOidTURNO", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tURNOidTURNO")
     private List<Clase> claseList;
 
     public Turno() {

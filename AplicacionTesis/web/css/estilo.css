@@ -1,0 +1,38 @@
+.header{
+    background-color: #063A64;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 15px;
+    color: #FDF2B5;
+      
+}
+
+.contenedor{
+    
+    border-radius: 0px 0px 8px 8px; 
+    width: 500px;
+    height: 220px; 
+    background-color: #FDF2B5;            
+}
+
+.ciclo{
+   color: #063A64;
+   font-weight: bold;
+   font-size: 20px;
+   text-align: center;
+}
+
+.texto{
+   color: #063A64;
+   font-weight: bold;
+   font-size: 15px;
+   padding-left: 8px;
+}
+
+.hora{
+   color: #063A64;
+   font-weight: bold;
+   font-size: 15px;  
+   text-align: center;
+    
+}

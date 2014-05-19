@@ -9,10 +9,8 @@ package pe.com.controlasistencia.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "UBIGEO")
+@Table(name = "UBIGEO", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Ubigeo.findAll", query = "SELECT u FROM Ubigeo u"),
@@ -55,7 +53,7 @@ public class Ubigeo implements Serializable {
     private int distritoId;
     @Column(name = "NOMBRE")
     private String nombre;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ubigeoId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "ubigeoId")
     private List<Usuario> usuarioList;
 
     public Ubigeo() {

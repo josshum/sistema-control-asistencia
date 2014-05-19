@@ -10,7 +10,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "PERMISO")
+@Table(name = "PERMISO", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Permiso.findAll", query = "SELECT p FROM Permiso p"),
@@ -58,10 +57,10 @@ public class Permiso implements Serializable {
     @Column(name = "EXPORTAR")
     private Short exportar;
     @JoinColumn(name = "PERFIL_ID", referencedColumnName = "PERFIL_ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Perfil perfilId;
     @JoinColumn(name = "INTERFAZ_ID", referencedColumnName = "INTERFAZ_ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Interfaz interfazId;
 
     public Permiso() {

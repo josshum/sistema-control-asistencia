@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author tigabytes-linux
  */
 @Entity
-@Table(name = "CARRERA")
+@Table(name = "CARRERA", catalog = "DBsiscontrol", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Carrera.findAll", query = "SELECT c FROM Carrera c"),
@@ -40,8 +39,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Carrera.findByTotalcred", query = "SELECT c FROM Carrera c WHERE c.totalcred = :totalcred"),
     @NamedQuery(name = "Carrera.findByActivo", query = "SELECT c FROM Carrera c WHERE c.activo = :activo")})
 public class Carrera implements Serializable {
-    @Column(name = "GRADO")
-    private String grado;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,11 +51,13 @@ public class Carrera implements Serializable {
     private String descripcion;
     @Column(name = "NUMCICLOS")
     private Integer numciclos;
+    @Column(name = "GRADO")
+    private String grado;
     @Column(name = "TOTALCRED")
     private Integer totalcred;
     @Column(name = "ACTIVO")
     private Integer activo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cARRERAidCARRERA", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cARRERAidCARRERA")
     private List<Curso> cursoList;
 
     public Carrera() {
@@ -100,6 +99,13 @@ public class Carrera implements Serializable {
         this.numciclos = numciclos;
     }
 
+    public String getGrado() {
+        return grado;
+    }
+
+    public void setGrado(String grado) {
+        this.grado = grado;
+    }
 
     public Integer getTotalcred() {
         return totalcred;
@@ -149,14 +155,6 @@ public class Carrera implements Serializable {
     @Override
     public String toString() {
         return "pe.com.controlasistencia.entities.Carrera[ idCARRERA=" + idCARRERA + " ]";
-    }
-
-    public String getGrado() {
-        return grado;
-    }
-
-    public void setGrado(String grado) {
-        this.grado = grado;
     }
     
 }

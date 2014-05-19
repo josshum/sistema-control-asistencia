@@ -33,4 +33,9 @@ public class UsuarioServicesImpl implements UsuarioServices {
         return usuarioDao.get(atributo_id);
     }
 
+    @Override
+    public Usuario validarUsuario(String usuario, String clave) {
+        return usuarioDao.validarUsuario(usuario, clave);
+    }
+
 }

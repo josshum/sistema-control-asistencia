@@ -2,6 +2,8 @@ package pe.com.controlasistencia.dao.jpa;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import org.apache.log4j.Logger;
 import pe.calvarado.gestion.util.messages.UIMessages;
@@ -68,11 +70,33 @@ public class UsuarioDAOImplJpa implements UsuarioDAO {
     }
 
     @Override
-    public Usuario get(Integer atributo_id) {
+    public Usuario get(Integer usuarioId) {
         if (!em.isOpen()) {
             em = JPAUtil.getEntityManager();
         }
-        return em.find(Usuario.class, atributo_id);
+        return em.find(Usuario.class, usuarioId);
+    }
+
+    @Override
+    public Usuario validarUsuario(String usuario, String clave) {
+        log.info("Validando usuario...");
+        try {
+
+            if (em.isOpen()) {
+                log.info("Conexion abierta");
+            } else {
+                log.info("Conexion cerrada");
+            }
+
+            Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.logonid = :login AND u.passwrd = :clave");
+            query.setParameter("login", usuario);
+            query.setParameter("clave", clave);
+            return (Usuario) query.getSingleResult();
+        } catch (NoResultException ex) {
+            log.error(ex.getMessage());
+            return null;
+        }
+
     }
 
 }

@@ -8,6 +8,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <jsp:forward page="testing.jsp"></jsp:forward>
+        <jsp:forward page="login.jsp"></jsp:forward>
     </body>
 </html>
